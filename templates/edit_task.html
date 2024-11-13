@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="{{url_for('static', filename='image.png')}}" type="image/x-icon" />
+    <title>Update Tugas</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+{% block content %}
+<h1 style="color: #fff;">Update Tugas</h1>
+
+<form action="{{ url_for('edit_task', task_id=task['_id']) }}" method="post">
+    <input type="text" name="task_name" value="{{ task['name'] }}" required class="form-control mb-2">
+    <button type="submit" class="btn btn-dark">Update Task</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+</form>
+{% endblock %}
+
+</body>
+</html>
